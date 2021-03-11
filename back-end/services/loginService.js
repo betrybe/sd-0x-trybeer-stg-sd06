@@ -1,11 +1,11 @@
 const crypto = require('crypto');
 const model = require('../models/loginModel.js');
 
-const emailValido = (email) => {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+// const emailValido = (email) => {
+//   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  return regexMail.test(String(email).toLowerCase());
-};
+//   return regexMail.test(String(email).toLowerCase());
+// };
 
 const errors = {
   invalidEmail: 'O campo e-mail deve ter o formato \'email@email.com\'',

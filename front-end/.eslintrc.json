@@ -20,7 +20,7 @@
     ],
     "sonarjs/cognitive-complexity": [
       "error",
-      20
+      25
     ]
   }
 }
