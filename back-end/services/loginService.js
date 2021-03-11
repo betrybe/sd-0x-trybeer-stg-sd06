@@ -30,7 +30,7 @@ const validateParams = (email, password) => {
 const validateUser = (user, password) => {
   const code = 'invalid_user';
   if (user === undefined) return { code, message: errors.userNotFound };
-  console.log(user.password, password);
+  
   if (user.password !== password) return { code, message: errors.wrongPassword };
 
   return {};

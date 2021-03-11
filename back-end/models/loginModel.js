@@ -1,10 +1,8 @@
 const pool = require('./connection');
 
 const getUser = async (email) => {
-  const [users] = await pool.execute('SELECT * FROM users WHERE email = ?', [
-    email,
-  ]);
-  return users;
+  const [user] = await pool.execute('SELECT * FROM users WHERE email = ?', [email]);
+  return user;
 };
 
 module.exports = {
