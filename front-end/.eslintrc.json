@@ -1,4 +1,26 @@
 {
   "root": true,
-  "extends": ["trybe-frontend"]
+  "extends": ["trybe-frontend"],
+  "rules": {
+    "max-lines-per-function": [
+      "error",
+      200
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 200,
+        "ignoreComments": true,
+        "ignoreUrls": true
+      }
+    ],
+    "complexity": [
+      "error",
+      20
+    ],
+    "sonarjs/cognitive-complexity": [
+      "error",
+      25
+    ]
+  }
 }
