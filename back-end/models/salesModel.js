@@ -6,7 +6,10 @@ const getAllSales = async () => {
 };
 
 const getSale = async (id) => {
-  const sql = 'SELECT sp.sale_id, sa.total_price, pr.name, sp.quantity, pr.price, pr.price * sp.quantity AS total, sa.status FROM sales_products AS sp JOIN sales AS sa ON sp.sale_id = sa.id JOIN products AS pr ON sp.product_id = pr.id WHERE sale_id = ?';
+  let sql = 'SELECT sp.sale_id, sa.total_price, pr.name, sp.quantity, pr.price,';
+  sql += ' pr.price * sp.quantity AS total, sa.status FROM sales_products AS sp';
+  sql += ' JOIN sales AS sa ON sp.sale_id = sa.id';
+  sql += ' JOIN products AS pr ON sp.product_id = pr.id WHERE sale_id = ?';
   const [sale] = await database.execute(sql, [id]);
 
   return sale;

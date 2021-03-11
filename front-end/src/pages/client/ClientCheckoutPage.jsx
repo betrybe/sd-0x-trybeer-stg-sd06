@@ -24,17 +24,18 @@ export default function ClientCheckoutPage() {
 
   // criei esse localCartItens porque o cartItens global está vindo como string e não
   // consegui identificar o motivo
-  const [localCartItens, setLocalCartItens] = useState(JSON.parse(localStorage.getItem('cart itens')));
+  const keyLocalStorage = 'cart itens';
+  const [localCartItens, setLocalCartItens] = useState(JSON.parse(localStorage.getItem(keyLocalStorage)));
 
   useEffect(() => {
-    setCartItens(JSON.parse(localStorage.getItem('cart itens')));
+    setCartItens(JSON.parse(localStorage.getItem(keyLocalStorage)));
   }, [setCartItens]);
 
   const removeProduct = (index) => {
     const newCartItens = cartItens.filter((item, i) => i !== index);
     const newCart = newCartItens
       .reduce((acc, elem) => acc + ((Number(elem.price) * Number(elem.quantity))), zero);
-    localStorage.setItem('cart itens', JSON.stringify(newCartItens));
+    localStorage.setItem(keyLocalStorage, JSON.stringify(newCartItens));
     localStorage.setItem('cart', (newCart));
     setLocalCartItens(newCartItens);
     setCartItens(newCartItens);

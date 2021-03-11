@@ -61,7 +61,7 @@ export default function AdminSaleDetailsPage(props) {
             data-testid="mark-as-delivered-btn"
             className="adminDetailsButton"
             type="button"
-            onClick={ () => handleClick(id) }
+            onClick={ () => handleClick() }
           >
             Marcar como entregue
           </button>

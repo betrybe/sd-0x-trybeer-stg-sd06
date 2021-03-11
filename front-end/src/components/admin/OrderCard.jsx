@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const OrderCard = (props) => {
   const { index, order } = props;
   const dois = 2;
+  const status = (order.status === 'Entregue') ? 'green orderStatus' : 'orderStatus';
 
   /* if (order.status === 'Entregue') {
     document.getElementsByClassName('orderStatus')[0].style.backgroundColor = '#008000';
@@ -22,7 +23,7 @@ const OrderCard = (props) => {
         <span data-testid={ `${index}-order-total-value` }>
           { `R$ ${Number(order.total_price).toFixed(dois).replace('.', ',')}` }
         </span>
-        <p className={ order.status === 'Entregue' ? 'green orderStatus' : 'orderStatus' }>
+        <p className={ status }>
           <p data-testid={ `${index}-order-status` }>{order.status}</p>
         </p>
       </Link>

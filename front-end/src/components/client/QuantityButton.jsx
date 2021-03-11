@@ -20,9 +20,10 @@ export default function QuantityButton(props) {
   } = props;
 
   const updateCart = () => localStorage.setItem('cart', (cart).toString());
+  const keyLocalStorage = 'cart itens';
 
   const altQuantity = async (newQuantity) => {
-    const cartProducts = JSON.parse(localStorage.getItem('cart itens'));
+    const cartProducts = JSON.parse(localStorage.getItem(keyLocalStorage));
     const prodIndex = cartProducts.findIndex((i) => i.id === id);
     let newCartItens = cartProducts;
 
@@ -43,10 +44,10 @@ export default function QuantityButton(props) {
         id, quantity: newQuantity, name, price,
       }]);
     }
-    localStorage.setItem('cart itens', JSON.stringify(newCartItens));
+    localStorage.setItem(keyLocalStorage, JSON.stringify(newCartItens));
   };
 
-  const cartItensLocalStorage = JSON.parse(localStorage.getItem('cart itens')).find((product) => product.id === id);
+  const cartItensLocalStorage = JSON.parse(localStorage.getItem(keyLocalStorage)).find((product) => product.id === id);
 
   const increaseItem = () => {
     let newQuantity;

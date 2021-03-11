@@ -1,12 +1,9 @@
 const mysql = require('mysql2/promise');
 const path = require('path');
 
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
-
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const { MYSQL_USER, MYSQL_PASSWORD, HOSTNAME } = process.env;
-
-console.log(MYSQL_USER, MYSQL_PASSWORD, HOSTNAME);
 
 const config = {
   user: process.env.MYSQL_USER,
@@ -16,20 +13,5 @@ const config = {
 };
 
 const connection = mysql.createPool(config);
-
-const getAll = async () => {
-  const [users] = await connection.execute('SELECT * FROM users;');
-  console.log(users);
-};
-
-const getAllProducts = async () => {
-  const [products] = await connection.execute('SELECT * FROM products');
-  // console.log(products);
-  return products;
-};
-
-// getAllProducts();
-
-// getAll();
 
 module.exports = connection;
